@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Customers</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+    body {
+        display: flex;
+        height: 100vh;
+        background: #f3f4f6;
+    }
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        background: linear-gradient(180deg, #1f2937, #111827);
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: 25px 15px;
+        border-radius: 0 20px 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    .sidebar h2 {
+        text-align: center;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+        color: #f9fafb;
+    }
+    .menu-item {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #f9fafb;
+        padding: 12px 15px;
+        margin: 8px 0;
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: 0.3s;
+        gap: 12px;
+    }
+    .menu-item:hover {
+        background: #374151;
+        transform: translateX(5px);
+    }
+    .menu-item i {
+        font-size: 18px;
+        width: 20px;
+        text-align: center;
+    }
+
+    /* Main Content */
+    .main {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+    }
+    .main h1 {
+        font-size: 1.8rem;
+        color: #1f2937;
+        margin-bottom: 20px;
+    }
+
+    /* Search Bar */
+    .search-bar {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .search-bar input {
+        width: 300px;
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+    .search-bar button {
+        padding: 10px 20px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .search-bar button:hover {
+        background: #1e40af;
+    }
+
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    thead {
+        background: #1f2937;
+        color: #fff;
+    }
+    th, td {
+        padding: 14px 18px;
+        text-align: left;
+        font-size: 1rem;
+    }
+    tbody tr:nth-child(even) {
+        background: #f9fafb;
+    }
+    tbody tr:hover {
+        background: #e5e7eb;
+    }
+    .actions button {
+        margin-right: 8px;
+        padding: 6px 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 0.9rem;
+        cursor: pointer;
+    }
+    .view-btn { background: #10b981; color: #fff; }
+    .edit-btn { background: #3b82f6; color: #fff; }
+    .delete-btn { background: #ef4444; color: #fff; }
+    .actions button:hover { opacity: 0.8; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .search-bar {
+            flex-direction: column;
+            gap: 10px;
+        }
+        .search-bar input {
+            width: 100%;
+        }
+        table, thead, tbody, th, td, tr {
+            display: block;
+            width: 100%;
+        }
+        tr {
+            margin-bottom: 15px;
+        }
+        th {
+            display: none;
+        }
+        td {
+            text-align: right;
+            position: relative;
+            padding-left: 50%;
+        }
+        td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 15px;
+            font-weight: bold;
+        }
+    }
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="admin-dashboard.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> Dashboard</a>
+    <a href="manage-drivers.html" class="menu-item"><i class="fa fa-id-card"></i> Manage Drivers</a>
+    <a href="manage-customers.html" class="menu-item"><i class="fa fa-users"></i> Manage Customers</a>
+    <a href="bookings.html" class="menu-item"><i class="fa fa-taxi"></i> <span>Bookings</span></a>
+    <a href="reports.html" class="menu-item"><i class="fa fa-chart-line"></i> Reports</a>
+    <a href="admin-login.html">Logout</a>
+</div>
+
+<div class="main">
+    <h1>Manage Customers</h1>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search by name or email">
+        <button><i class="fa fa-search"></i> Search</button>
+    </div>
+
+    <!-- Customer Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Wallet Balance</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-label="#">1</td>
+                <td data-label="Name">Rohit Sharma</td>
+                <td data-label="Email">rohit@example.com</td>
+                <td data-label="Phone">+91 9876543210</td>
+                <td data-label="Wallet">₹1200</td>
+                <td class="actions" data-label="Actions">
+                    <button class="view-btn">View</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+            <tr>
+                <td data-label="#">2</td>
+                <td data-label="Name">Priya Gupta</td>
+                <td data-label="Email">priya@example.com</td>
+                <td data-label="Phone">+91 9876500000</td>
+                <td data-label="Wallet">₹850</td>
+                <td class="actions" data-label="Actions">
+                    <button class="view-btn">View</button>
+                    <button class="edit-btn">Edit</button>
+                    <button class="delete-btn">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
