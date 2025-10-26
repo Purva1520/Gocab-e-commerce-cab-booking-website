@@ -42,6 +42,7 @@
     text-align: center;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     animation: fadeIn 1.2s ease-in-out;
+    width: 350px;
   }
 
   .welcome-container h1 {
@@ -57,8 +58,8 @@
   }
 
   .btn {
-    display: inline-block;
-    margin: 10px;
+    display: block;
+    margin: 10px auto;
     padding: 12px 30px;
     border-radius: 8px;
     font-size: 1rem;
@@ -66,13 +67,18 @@
     text-decoration: none;
     color: white;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 80%;
   }
 
-  .btn-new {
+  .btn-admin {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+  }
+
+  .btn-driver {
     background: linear-gradient(135deg, #36d1dc, #5b86e5);
   }
 
-  .btn-return {
+  .btn-customer {
     background: linear-gradient(135deg, #ff512f, #dd2476);
   }
 
@@ -97,10 +103,11 @@
 
 <div class="welcome-container">
   <h1>Welcome to GOCAB</h1>
-  <p>Your ride, just a click away! Are you a new customer or returning?</p>
+  <p>Who are you? Please select your role to continue:</p>
   
-  <a href="signup.html" class="btn btn-new">I’m New</a>
-  <a href="login.html" class="btn btn-return">I’m Returning</a>
+  <a href="admin-login.html" class="btn btn-admin">Admin</a>
+  <a href="driver-login.html" class="btn btn-driver">Driver</a>
+  <a href="LOGIN_SIGNUP.html" class="btn btn-customer">Customer</a>
 </div>
 
 </body>
