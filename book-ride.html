@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -349,3 +350,354 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Dashboard - GOCAB</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  body {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #1e1e2f, #121212);
+    color: #fff;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 15px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    animation: fadeInLeft 1s ease;
+  }
+
+  .sidebar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ffd200;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .menu {
+    flex: 1;
+  }
+
+  .menu ul {
+    list-style: none;
+  }
+
+  .menu ul li {
+    margin: 18px 0;
+  }
+
+  .menu ul li a {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+
+  .menu ul li a i {
+    margin-right: 12px;
+    font-size: 1.2rem;
+  }
+
+  .menu ul li a:hover,
+  .menu ul li a.active {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    box-shadow: 0 4px 10px rgba(91,134,229,0.5);
+  }
+
+  .logout {
+    margin-top: auto;
+    text-align: center;
+  }
+
+  .logout button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .logout button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Main content area */
+  .main-content {
+    flex: 1;
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* Booking panel */
+  .booking-panel {
+    width: 40%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .panel-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .tabs button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .tabs button:hover {
+    background: rgba(255,255,255,0.3);
+  }
+
+  .tabs button.active {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    color: #fff;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+    position: relative;
+  }
+
+  .form-group i {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #bbb;
+  }
+
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+  }
+
+  .form-group input::placeholder {
+    color: #ccc;
+  }
+
+  .book-btn {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .book-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+
+  /* Map section */
+  .map-section {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    background: #222;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  }
+
+  .map-section iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  .nearby-cabs {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    border-radius: 10px;
+    width: 200px;
+  }
+
+  .nearby-cabs h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #ffd200;
+  }
+
+  .cab-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @media (max-width: 1000px) {
+    body {
+      flex-direction: column;
+      height: auto;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+    }
+    .main-content {
+      flex-direction: column;
+      padding: 10px;
+    }
+    .booking-panel {
+      width: 100%;
+    }
+    .map-section {
+      height: 300px;
+      width: 100%;
+    }
+    .nearby-cabs {
+      position: static;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+  <div class="logo">GOCAB</div>
+  <div class="menu">
+    <ul>
+      <li><a href="#" class="active"><i class="fas fa-home"></i>Dashboard</a></li>
+      <li><a href="#"><i class="fas fa-car"></i>Book Ride</a></li>
+      <li><a href="#"><i class="fas fa-wallet"></i>Wallet</a></li>
+      <li><a href="#"><i class="fas fa-credit-card"></i>Payments</a></li>
+      <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
+    </ul>
+  </div>
+  <div class="logout">
+    <button><i class="fas fa-sign-out-alt"></i> Logout</button>
+  </div>
+</div>
+
+<!-- Main content -->
+<div class="main-content">
+  <!-- Booking Panel -->
+  <div class="booking-panel">
+    <h2 class="panel-title">Book Your Ride</h2>
+    <div class="tabs">
+      <button class="active">Local</button>
+      <button>Outstation</button>
+      <button>Parcel</button>
+      <button>Offline</button>
+    </div>
+    <form>
+      <div class="form-group">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" placeholder="Enter pickup location">
+      </div>
+      <div class="form-group">
+        <i class="fas fa-location-arrow"></i>
+        <input type="text" placeholder="Enter drop location">
+      </div>
+      <div class="form-group">
+        <i class="fas fa-car-side"></i>
+        <select>
+          <option>Select Cab Type</option>
+          <option>Mini</option>
+          <option>Sedan</option>
+          <option>SUV</option>
+        </select>
+      </div>
+      <button class="book-btn">Book Ride</button>
+    </form>
+  </div>
+
+  <!-- Map Section -->
+  <div class="map-section">
+    <div class="nearby-cabs">
+      <h3>Nearby Cabs</h3>
+      <div class="cab-item"><span>Cab #101</span><span>0.5 km</span></div>
+      <div class="cab-item"><span>Cab #102</span><span>1.2 km</span></div>
+      <div class="cab-item"><span>Cab #103</span><span>2.0 km</span></div>
+    </div>
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.202525364469!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670d5c1bb21%3A0x4e8c8dc4d5dc60b3!2sBangalore!5e0!3m2!1sen!2sin!4v1632903925297!5m2!1sen!2sin" 
+      allowfullscreen=""
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+</body>
+</html>
+>>>>>>> cece5bd55ac6c738b6fd3ca7caee95b80cb0baf9

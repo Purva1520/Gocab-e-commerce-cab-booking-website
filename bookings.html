@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,3 +123,129 @@ input, select, button {
 <script src="bookings.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bookings - GOCAB</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+.sidebar {
+    width: 200px;
+    background: orange;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+}
+.sidebar h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+}
+.sidebar a:hover {
+    background: #ffb74d;
+}
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+.topbar {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+table th {
+    background: #f5f5f5;
+}
+h2 {
+    margin-bottom: 10px;
+}
+input, select, button {
+    padding: 5px 10px;
+    margin: 5px;
+}
+.form-inline {
+    margin-bottom: 20px;
+}
+.btn {
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="sidebar">
+    <h1>GOCAB</h1>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="manage-drivers.html">Manage Drivers</a>
+    <a href="manage-customers.html">Manage Customers</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="reports.html">Reports</a>
+    <a href="admin-login.html">Logout</a>
+</div>
+
+<div class="main-content">
+    <div class="topbar">
+        <h1>Bookings</h1>
+        <div>Welcome, Admin</div>
+    </div>
+
+    <h2>All Bookings</h2>
+
+    <div class="form-inline">
+        <input type="text" id="customer" placeholder="Customer Name">
+        <input type="text" id="driver" placeholder="Driver Name">
+        <select id="status">
+            <option value="Pending">Pending</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+        <button id="addBtn" class="btn">Add Booking</button>
+    </div>
+
+    <table id="bookingsTable">
+        <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Driver</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </table>
+</div>
+
+<!-- 🔗 External JavaScript -->
+<script src="bookings.js"></script>
+</body>
+</html>
+>>>>>>> cece5bd55ac6c738b6fd3ca7caee95b80cb0baf9

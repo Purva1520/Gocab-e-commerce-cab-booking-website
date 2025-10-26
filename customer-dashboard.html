@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Dashboard - GOCAB</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        display: flex;
+        background: #f4f4f9;
+        color: #333;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        width: 260px;
+        height: 100vh;
+        background: linear-gradient(180deg, #f7971e, #ffd200);
+        padding: 30px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0 20px 20px 0;
+    }
+
+    .sidebar h2 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+
+    .sidebar a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 15px;
+        margin: 12px 0;
+        font-size: 1.1rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+    }
+
+    .sidebar a:hover {
+        background: rgba(255, 255, 255, 0.25);
+        transform: translateX(8px);
+    }
+
+    /* Main content */
+    .main-content {
+        margin-left: 260px;
+        padding: 30px;
+        width: calc(100% - 260px);
+    }
+
+    /* Top bar */
+    .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: linear-gradient(90deg, #f7971e, #ffd200);
+        padding: 20px 30px;
+        border-radius: 15px;
+        color: #fff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+
+    .topbar h1 {
+        font-size: 1.8rem;
+    }
+
+    .topbar .customer-info {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    /* Dashboard cards */
+    .dashboard-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-8px);
+    }
+
+    .card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 12px;
+        color: #444;
+    }
+
+    .card p {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #f7971e;
+    }
+
+    /* Section */
+    .section {
+        background: #fff;
+        padding: 25px;
+        margin-top: 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .section h2 {
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+        color: #444;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table th, table td {
+        padding: 14px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+        font-size: 1rem;
+    }
+
+    table th {
+        background: #f9f9f9;
+        font-weight: 600;
+    }
+
+    /* Logout button */
+    .logout-btn {
+        background: #ff4d4d;
+        color: #fff;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        margin-top: 20px;
+        display: inline-block;
+    }
+
+    .logout-btn:hover {
+        background: #e60000;
+    }
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+    <h2>GOCAB</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Book a Ride</a>
+    <a href="#">My Rides</a>
+    <a href="#">Payments</a>
+    <a href="#">Profile</a>
+    <a href="customer-login.html">Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Top Bar -->
+    <div class="topbar">
+        <h1>Customer Dashboard</h1>
+        <div class="customer-info">Welcome, Priya Sharma</div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Total Rides</h3>
+            <p>18</p>
+        </div>
+        <div class="card">
+            <h3>Active Rides</h3>
+            <p>1</p>
+        </div>
+        <div class="card">
+            <h3>Wallet Balance</h3>
+            <p>₹450</p>
+        </div>
+        <div class="card">
+            <h3>Reward Points</h3>
+            <p>320</p>
+        </div>
+    </div>
+
+    <!-- Upcoming Rides Section -->
+    <div class="section">
+        <h2>Upcoming Rides</h2>
+        <table>
+            <tr>
+                <th>Ride ID</th>
+                <th>Driver</th>
+                <th>Pickup</th>
+                <th>Drop</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td>#C001</td>
+                <td>Ajay Singh</td>
+                <td>Connaught Place</td>
+                <td>IGI Airport</td>
+                <td><b style="color:green;">Scheduled</b></td>
+            </tr>
+            <tr>
+                <td>#C002</td>
+                <td>Rohit Kumar</td>
+                <td>Rajouri Garden</td>
+                <td>Saket</td>
+                <td><b style="color:green;">Scheduled</b></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us - BollyFlix</title>
+  <style>
+    body {
+      background-color: #141414;
+      color: white;
+      font-family: 'Helvetica Neue', sans-serif;
+      padding: 40px;
+    }
+    h1 {
+      color: #e50914;
+    }
+    input, textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background: #e50914;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    a {
+      color: #e50914;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contact Us</h1>
+  <form onsubmit="alert('Thanks for reaching out!'); return false;">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <br>
+    <button type="submit">Send Message</button>
+  </form>
+  <a href="dashboard.html">← Back to Dashboard</a>
+</body>
+</html>
