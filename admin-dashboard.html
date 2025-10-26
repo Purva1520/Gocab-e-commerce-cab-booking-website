@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Dashboard - GOCAB</title>
+<link rel="stylesheet" href="css/style.css">
 <style>
     * {
         margin: 0;
@@ -179,19 +180,19 @@
     <div class="dashboard-cards">
         <div class="card">
             <h3>Total Drivers</h3>
-            <p>150</p>
+            <p id="total-drivers">150</p>
         </div>
         <div class="card">
             <h3>Total Customers</h3>
-            <p>1,245</p>
+            <p id="total-customers">1,245</p>
         </div>
         <div class="card">
             <h3>Total Bookings</h3>
-            <p>3,560</p>
+            <p id="total-bookings">3,560</p>
         </div>
         <div class="card">
             <h3>Earnings</h3>
-            <p>₹4,50,000</p>
+            <p id="total-earnings">₹4,50,000</p>
         </div>
     </div>
 
@@ -221,5 +222,10 @@
     </div>
 </div>
 
+<!-- ✅ JS Files -->
+<script src="js/common.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/driver.js"></script>
+<script src="js/customer.js"></script>
 </body>
 </html>
