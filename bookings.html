@@ -3,252 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manage Bookings</title>
+<title>Bookings - GOCAB</title>
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-    body {
-        display: flex;
-        height: 100vh;
-        background: #f3f4f6;
-    }
-
-    /* Sidebar */
-    .sidebar {
-        width: 260px;
-        background: linear-gradient(180deg, #1f2937, #111827);
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        padding: 25px 15px;
-        border-radius: 0 20px 20px 0;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-    }
-    .sidebar h2 {
-        text-align: center;
-        font-size: 1.6rem;
-        margin-bottom: 30px;
-        color: #f9fafb;
-    }
-    .menu-item {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: #f9fafb;
-        padding: 12px 15px;
-        margin: 8px 0;
-        border-radius: 12px;
-        font-size: 1rem;
-        font-weight: 500;
-        transition: 0.3s;
-        gap: 12px;
-    }
-    .menu-item:hover {
-        background: #374151;
-        transform: translateX(5px);
-    }
-    .menu-item i {
-        font-size: 18px;
-        width: 20px;
-        text-align: center;
-    }
-
-    /* Main Content */
-    .main {
-        flex: 1;
-        padding: 30px;
-        overflow-y: auto;
-    }
-    .main h1 {
-        font-size: 1.8rem;
-        color: #1f2937;
-        margin-bottom: 20px;
-    }
-
-    /* Search & Filter */
-    .search-filter {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-bottom: 20px;
-    }
-    .search-filter input, .search-filter select {
-        padding: 10px 12px;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        font-size: 1rem;
-    }
-    .search-filter button {
-        padding: 10px 18px;
-        background: #2563eb;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-    .search-filter button:hover {
-        background: #1e40af;
-    }
-
-    /* Table */
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        background: #fff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    thead {
-        background: #1f2937;
-        color: #fff;
-    }
-    th, td {
-        padding: 14px 18px;
-        text-align: left;
-        font-size: 1rem;
-    }
-    tbody tr:nth-child(even) {
-        background: #f9fafb;
-    }
-    tbody tr:hover {
-        background: #e5e7eb;
-    }
-    .status {
-        padding: 6px 10px;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        color: #fff;
-    }
-    .completed { background: #10b981; }
-    .pending { background: #f59e0b; }
-    .cancelled { background: #ef4444; }
-
-    .actions button {
-        margin-right: 8px;
-        padding: 6px 12px;
-        border: none;
-        border-radius: 6px;
-        font-size: 0.9rem;
-        cursor: pointer;
-    }
-    .view-btn { background: #3b82f6; color: #fff; }
-    .delete-btn { background: #ef4444; color: #fff; }
-    .actions button:hover { opacity: 0.85; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-        .search-filter {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-        table, thead, tbody, th, td, tr {
-            display: block;
-            width: 100%;
-        }
-        tr {
-            margin-bottom: 15px;
-        }
-        th {
-            display: none;
-        }
-        td {
-            text-align: right;
-            position: relative;
-            padding-left: 50%;
-        }
-        td::before {
-            content: attr(data-label);
-            position: absolute;
-            left: 15px;
-            font-weight: bold;
-        }
-    }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+}
+.sidebar {
+    width: 200px;
+    background: orange;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    padding-top: 20px;
+}
+.sidebar h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sidebar a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin-bottom: 5px;
+}
+.sidebar a:hover {
+    background: #ffb74d;
+}
+.main-content {
+    margin-left: 220px;
+    padding: 20px;
+}
+.topbar {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+table th, table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+table th {
+    background: #f5f5f5;
+}
+h2 {
+    margin-bottom: 10px;
+}
+input, select, button {
+    padding: 5px 10px;
+    margin: 5px;
+}
+.form-inline {
+    margin-bottom: 20px;
+}
+.btn {
+    cursor: pointer;
+}
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
 <div class="sidebar">
-    <h2>Admin Panel</h2>
-    <a href="admin-dashboard.html" class="menu-item"><i class="fa fa-tachometer-alt"></i> Dashboard</a>
-    <a href="manage-drivers.html" class="menu-item"><i class="fa fa-id-card"></i> Manage Drivers</a>
-    <a href="manage-customers.html" class="menu-item"><i class="fa fa-users"></i> Manage Customers</a>
-    <a href="bookings.html" class="menu-item"><i class="fa fa-car"></i> Manage Bookings</a>
-    <a href="reports.html" class="menu-item"><i class="fa fa-chart-line"></i> Reports</a>
+    <h1>GOCAB</h1>
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="manage-drivers.html">Manage Drivers</a>
+    <a href="manage-customers.html">Manage Customers</a>
+    <a href="bookings.html">Bookings</a>
+    <a href="reports.html">Reports</a>
     <a href="admin-login.html">Logout</a>
 </div>
 
-<div class="main">
-    <h1>Manage Bookings</h1>
-
-    <!-- Search & Filter -->
-    <div class="search-filter">
-        <input type="text" placeholder="Search by booking ID or customer name">
-        <select>
-            <option value="">All Status</option>
-            <option value="completed">Completed</option>
-            <option value="pending">Pending</option>
-            <option value="cancelled">Cancelled</option>
-        </select>
-        <input type="date">
-        <button><i class="fa fa-search"></i> Filter</button>
+<div class="main-content">
+    <div class="topbar">
+        <h1>Bookings</h1>
+        <div>Welcome, Admin</div>
     </div>
 
-    <!-- Bookings Table -->
-    <table>
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Booking ID</th>
-                <th>Customer</th>
-                <th>Pickup</th>
-                <th>Drop</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Fare</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td data-label="#">1</td>
-                <td data-label="Booking ID">BK1001</td>
-                <td data-label="Customer">Rohit Sharma</td>
-                <td data-label="Pickup">Delhi</td>
-                <td data-label="Drop">Agra</td>
-                <td data-label="Date">2025-08-30</td>
-                <td data-label="Status"><span class="status completed">Completed</span></td>
-                <td data-label="Fare">₹1500</td>
-                <td data-label="Actions" class="actions">
-                    <button class="view-btn">View</button>
-                    <button class="delete-btn">Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td data-label="#">2</td>
-                <td data-label="Booking ID">BK1002</td>
-                <td data-label="Customer">Priya Gupta</td>
-                <td data-label="Pickup">Mumbai</td>
-                <td data-label="Drop">Pune</td>
-                <td data-label="Date">2025-08-31</td>
-                <td data-label="Status"><span class="status pending">Pending</span></td>
-                <td data-label="Fare">₹1200</td>
-                <td data-label="Actions" class="actions">
-                    <button class="view-btn">View</button>
-                    <button class="delete-btn">Delete</button>
-                </td>
-            </tr>
-        </tbody>
+    <h2>All Bookings</h2>
+
+    <div class="form-inline">
+        <input type="text" id="customer" placeholder="Customer Name">
+        <input type="text" id="driver" placeholder="Driver Name">
+        <select id="status">
+            <option value="Pending">Pending</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Completed">Completed</option>
+            <option value="Cancelled">Cancelled</option>
+        </select>
+        <button id="addBtn" class="btn">Add Booking</button>
+    </div>
+
+    <table id="bookingsTable">
+        <tr>
+            <th>Booking ID</th>
+            <th>Customer</th>
+            <th>Driver</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
     </table>
 </div>
 
+<!-- 🔗 External JavaScript -->
+<script src="bookings.js"></script>
 </body>
 </html>
