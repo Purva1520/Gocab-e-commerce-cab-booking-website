@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="LOGIN_SGNUP.css">
+    <title>Customer-Signin/Signup</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Go Cab</h1>
+    </div>
+
+    <div class="container">
+
+        <!-- Signup Form -->
+        <div id="signup-form">
+            <h2>Sign Up</h2>
+
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" pattern="^\+?\d{10,15}$" title="Enter a valid phone number" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p>Already have an account? <span id="show-login">Login</span></p>
+            <p class="message" id="signup-msg"></p>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" style="display:none;">
+
+            <h2>Login</h2>
+
+            <form>
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required>
+
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p>Don't have an account? <span id="show-signup">Sign Up</span></p>
+            <p class="message" id="login-msg"></p>
+        </div>
+
+    </div>
+
+    <script>
+        const signupDiv = document.getElementById('signup-form');
+        const loginDiv = document.getElementById('login-form');
+        const showLogin = document.getElementById('show-login');
+        const showSignup = document.getElementById('show-signup');
+
+        const signupForm = signupDiv.querySelector('form');
+        const loginForm = loginDiv.querySelector('form');
+
+        const signupMsg = document.getElementById('signup-msg');
+        const loginMsg = document.getElementById('login-msg');
+
+    // Switch to Login
+        showLogin.addEventListener('click', () => {
+            signupDiv.style.display = 'none';
+            loginDiv.style.display = 'block';
+            signupMsg.textContent = '';
+        });
+
+    // Switch to Signup
+        showSignup.addEventListener('click', () => {
+            loginDiv.style.display = 'none';
+            signupDiv.style.display = 'block';
+            loginMsg.textContent = '';
+        });
+
+    // Signup form submit handler
+        signupForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!name || !email || !phone || !password) {
+                signupMsg.textContent = 'Please fill in all fields!';
+                signupMsg.className = 'message error';
+                return;
+            }
+
+            signupMsg.textContent = 'Account created successfully!';
+            signupMsg.className = 'message success';
+            signupForm.reset();
+
+            setTimeout(() => {
+                window.location.href = 'Home.html';
+                }, 1000);
+            });
+
+    // Login form submit handler
+        loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value.trim();
+
+            if (!email || !password) {
+                loginMsg.textContent = 'Please enter both email and password!';
+                loginMsg.className = 'message error';
+                return;
+            }
+
+            loginMsg.textContent = 'Login successful!';
+            loginMsg.className = 'message success';
+            loginForm.reset();
+
+            setTimeout(() => {
+                window.location.href = 'Home.html';
+                }, 1000);
+            });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go Cab - Offline Booking</title>
+  <link rel="stylesheet" href="ABOUTUS.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0; 
+      height: 100vh;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),url('backgroundimage.png');
+      background-repeat: no-repeat; 
+      background-size: cover;      
+      background-position: center;  
+      background-attachment: fixed; 
+} 
+
+    header {
+      background: rgba(30, 41, 59, 0.9);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      backdrop-filter: blur(8px);
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover,
+    nav ul li.active a {
+      color: #f1c40f;
+    }
+
+    .booking-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 90%;
+      max-width: 1000px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .booking-form {
+      flex: 1;
+      padding: 35px;
+      color: #111;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+    }
+
+    .booking-form h2 {
+      text-align: center;
+      color: #1e293b;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    .booking-form p {
+      text-align: center;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      font-size: 1rem;
+      outline: none;
+      background: rgba(255, 255, 255, 0.9);
+      transition: 0.3s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+      background: rgba(255, 255, 255, 1);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #0ea5e9, #0284c7);
+      transform: translateY(-2px);
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      text-align: center;
+      color: #333;
+    }
+
+    .booking-info {
+      flex: 1;
+      position: relative;
+      background: url('ride-bg.jpg') no-repeat center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .booking-info::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .booking-info div {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      background: rgba(30, 41, 59, 0.9);
+      color: #fff;
+      padding: 15px;
+      font-size: 0.9rem;
+      backdrop-filter: blur(8px);
+      margin-top: auto;
+    }
+
+    @media (max-width: 900px) {
+      .booking-wrapper {
+        flex-direction: column;
+      }
+      .booking-info {
+        height: 250px;
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🚖 Go Cab</h1>
+    <nav>
+      <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="parcel.html">Parcel</a></li>
+        <li class="active"><a href="offline-booking.html">Offline Booking</a></li>
+        <li><a href="AboutUs.html">About Us</a></li>
+        <li><a href="ContactUs.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="booking-wrapper">
+    <!-- Left Form -->
+    <div class="booking-form">
+      <h2>Offline Booking</h2>
+      <p>Book your ride easily and get instant confirmation.</p>
+
+      <form>
+        <div class="form-group">
+          <label for="name">Customer Name</label>
+          <input type="text" id="name" placeholder="Enter full name" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Mobile Number</label>
+          <input type="tel" id="phone" placeholder="Enter phone number" required>
+        </div>
+        <div class="form-group">
+          <label for="pickup">Pickup Location</label>
+          <input type="text" id="pickup" placeholder="Enter pickup point" required>
+        </div>
+        <div class="form-group">
+          <label for="drop">Drop Location</label>
+          <input type="text" id="drop" placeholder="Enter drop point" required>
+        </div>
+        <div class="form-group">
+          <label for="type">Booking Type</label>
+          <select id="type" required>
+            <option value="">Select Type</option>
+            <option value="local">Local</option>
+            <option value="outstation">Outstation</option>
+            <option value="parcel">Parcel</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Pickup Date</label>
+          <input type="date" id="date" required>
+        </div>
+        <div class="form-group">
+          <label for="time">Pickup Time</label>
+          <input type="time" id="time" required>
+        </div>
+        <div class="form-group">
+          <label for="payment">Payment Mode</label>
+          <select id="payment" required>
+            <option value="">Select Payment</option>
+            <option value="cash">Cash</option>
+            <option value="wallet">Wallet</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn"><i class="fa fa-check"></i> Confirm Booking</button>
+        <p class="note">You will receive confirmation via SMS.</p>
+      </form>
+    </div>
+
+    <!-- Right Info Section -->
+    <div class="booking-info">
+      <div>Plan Your Ride<br> Hassle-Free Booking</div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Go Cab. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Home.css">
+    <title>Home</title>
+</head>
+<body>
+
+  <header>
+    <h1>🚖 Go Cab</h1>
+    <nav>
+      <ul>
+        <li class="active"><a href="Home.html">Home</a></li>
+        <li><a href="parcel.html">Parcel</a></li>
+        <li><a href="offline-booking.html">Offline Booking</a></li>
+        <li><a href="AboutUs.html">AboutUs</a></li>
+        <li><a href="ContactUs.html">ContactUs</a></li>
+      </ul>
+    </nav>
+  </header>  
+  
+  <section class="booking-section">
+
+    <div class="booking-card">
+      <h2>Book Your Ride</h2>
+
+      <form id="rideForm">
+
+        <label for="pickup">Pickup Location:</label>
+        <input type="text" id="pickup" placeholder="Enter pickup location" required>
+
+        <label for="destination">Destination:</label>
+        <input type="text" id="destination" placeholder="Enter destination" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" required>
+
+        <label for="vehicle">Select Vehicle:</label>
+        <select id="vehicle" required>
+          <option value="">Choose...</option>
+          <option value="Mini">Mini</option>
+          <option value="Sedan">Sedan</option>
+          <option value="SUV">SUV</option>
+          <option value="Luxury">Luxury</option>
+        </select>
+
+        <button type="submit">Book Ride</button>
+      </form>
+    </div>
+  </section>
+
+  <img src="profile.png" 
+       alt="Profile Icon" width="50" height="50"
+       id="profileIcon">
+       
+  <footer>
+    © 2025 Go Cab. All Rights Reserved.
+  </footer>
+
+  <script>
+    document.getElementById('rideForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+      const pickup = document.getElementById('pickup').value.trim();
+      const destination = document.getElementById('destination').value.trim();
+      const date = document.getElementById('date').value;
+      const time = document.getElementById('time').value;
+      const vehicle = document.getElementById('vehicle').value;
+
+      if (!pickup || !destination || !date || !time || !vehicle) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      alert(`🚖 Ride Booked Successfully!\n\nPickup: ${pickup}\nDestination: ${destination}\nDate: ${date}\nTime: ${time}\nVehicle: ${vehicle}`);
+      document.getElementById('rideForm').reset();
+    });
+
+    document.getElementById('profileIcon').addEventListener('click', () => {
+      window.location.href = "profile.html";
+    });
+    
+  </script>
+</body>
+</html>

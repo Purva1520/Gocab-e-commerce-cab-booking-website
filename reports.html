@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - GOCAB</title>
+    <style>
+        /* Same styles as bookings.html */
+        body { margin: 0; font-family: Arial, sans-serif; background: #f0f2f5; }
+        .sidebar { width: 200px; background: orange; color: white; height: 100vh; position: fixed; padding-top: 20px; }
+        .sidebar h1 { text-align: center; margin-bottom: 30px; }
+        .sidebar a { display: block; color: white; text-decoration: none; padding: 15px 20px; margin-bottom: 5px; }
+        .sidebar a:hover { background: #ffb74d; }
+        .main-content { margin-left: 220px; padding: 20px; }
+        .topbar { background: #fff; padding: 10px 20px; border-radius: 8px; display: flex; justify-content: space-between; margin-bottom: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        table th, table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        table th { background: #f5f5f5; }
+        h2 { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>GOCAB</h1>
+        <a href="admin-dashboard.html">Dashboard</a>
+        <a href="manage-drivers.html">Manage Drivers</a>
+        <a href="manage-customers.html">Manage Customers</a>
+        <a href="bookings.html">Bookings</a>
+        <a href="reports.html">Reports</a>
+        <a href="admin-login.html">Logout</a>
+    </div>
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Reports</h1>
+            <div>Welcome, Admin</div>
+        </div>
+        <h2>Monthly Earnings Report</h2>
+        <table>
+            <tr>
+                <th>Month</th>
+                <th>Total Bookings</th>
+                <th>Earnings (₹)</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>320</td>
+                <td>₹45,000</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>280</td>
+                <td>₹38,000</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>400</td>
+                <td>₹55,000</td>
+            </tr>
+        </table>
+    </div>
+    <script src="js/reports.js"></script>
+</body>
+</html>
+
+
+

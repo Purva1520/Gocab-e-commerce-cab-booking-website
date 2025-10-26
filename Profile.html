@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Profile.css">
+    <title>Go Cab-Profile</title>
+</head>
+<body>
+
+  <header>
+    <h1>🚖 Go Cab</h1>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="#">Drive with us</a></li>
+        <li><a href="AboutUs.html">AboutUs</a></li>
+        <li><a href="ContactUs.html">ContactUs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="profile-container">
+
+    <h2>Your Profile</h2>
+    <div class="profile-card">
+
+        <div class="profile-field">
+            <label>Name:</label>
+            <input type="text" id="name" value="Palak" disabled>
+        </div>
+
+        <div class="profile-field">
+            <label>Email:</label>
+            <input type="email" id="email" value="palak@gmail.com" disabled>
+      </div>
+
+      <div class="profile-field">
+        <label>Phone:</label>
+        <input type="tel" id="phone" value="+91 9876543210" disabled>
+      </div>
+
+        <div class="action-buttons">
+            <button id="editProfile">Edit Profile</button>
+            <button id="saveProfile" style="display:none;">Save</button>
+            <button id="cancelEdit" style="display:none;">Cancel</button>
+        </div> 
+
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Go Cab. All Rights Reserved.
+  </footer>
+
+  <script>
+    const editBtn = document.getElementById("editProfile");
+    const saveBtn = document.getElementById("saveProfile");
+    const cancelBtn = document.getElementById("cancelEdit");
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    const inputs = document.querySelectorAll(".profile-field input");
+
+    editBtn.addEventListener("click", () => {
+      inputs.forEach(input => input.disabled = false);
+      editBtn.style.display = "none";
+      saveBtn.style.display = "inline-block";
+      cancelBtn.style.display = "inline-block";
+    });
+
+    saveBtn.addEventListener("click", () => {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+
+      if (!name || !email || !phone) {
+        alert("⚠️ Please fill all fields before saving.");
+        return;
+      }
+
+      alert(`✅ Profile Updated!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+
+      inputs.forEach(input => input.disabled = true);
+      editBtn.style.display = "inline-block";
+      saveBtn.style.display = "none";
+      cancelBtn.style.display = "none";
+    });
+
+    cancelBtn.addEventListener("click", () => {
+      inputs.forEach(input => input.disabled = true);
+      editBtn.style.display = "inline-block";
+      saveBtn.style.display = "none";
+      cancelBtn.style.display = "none";
+    });
+
+    logoutBtn.addEventListener("click", () => {
+      const confirmLogout = confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        window.location.href = "LOGIN_SIGNUP.html";
+      }
+    });
+    
+  </script>
+
+</body>
+</html>

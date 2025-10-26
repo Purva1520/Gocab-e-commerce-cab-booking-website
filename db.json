@@ -1,0 +1,127 @@
+{
+  "customers": [
+    {
+      "id": "1",
+      "name": "Riya Sharma",
+      "email": "riya.sharma@example.com"
+    },
+    {
+      "id": "2",
+      "name": "Aarav Patel",
+      "email": "aarav.patel@example.com"
+    },
+    {
+      "id": "3",
+      "name": "Meena Kapoor",
+      "email": "meena.kapoor@example.com"
+    },
+    {
+      "id": "152c",
+      "name": "Ravi Kumar",
+      "email": ""
+    },
+    {
+      "id": "f99e",
+      "name": "Purva",
+      "email": ""
+    },
+    {
+      "id": "80fc",
+      "name": "kashish",
+      "email": ""
+    },
+    {
+      "id": "70ed",
+      "name": "purva",
+      "email": ""
+    }
+  ],
+  "drivers": [
+    {
+      "id": "1",
+      "name": "Raj Singh",
+      "car": "Maruti Swift",
+      "rating": 4.8
+    },
+    {
+      "id": "2",
+      "name": "Vikram Chauhan",
+      "car": "Hyundai Creta",
+      "rating": 4.5
+    },
+    {
+      "id": "3",
+      "name": "Arjun Mehta",
+      "car": "Honda City",
+      "rating": 4.7
+    },
+    {
+      "id": "2836",
+      "name": "Ajay Singh",
+      "car": "",
+      "rating": 0
+    },
+    {
+      "id": "d3e4",
+      "name": "Kashish",
+      "car": "",
+      "rating": 0
+    },
+    {
+      "id": "fe58",
+      "name": "purva",
+      "car": "",
+      "rating": 0
+    },
+    {
+      "id": "8250",
+      "name": "kkkk",
+      "car": "",
+      "rating": 0
+    }
+  ],
+  "bookings": [
+    {
+      "id": "dc0e",
+      "customer": "Ravi Kumar",
+      "driver": "Ajay Singh",
+      "status": "Pending"
+    },
+    {
+      "id": "f9eb",
+      "customer": "Ravi Kumar",
+      "driver": "Ajay Singh",
+      "status": "Pending"
+    },
+    {
+      "id": "e729",
+      "customer": "Purva",
+      "driver": "Kashish",
+      "status": "Completed"
+    },
+    {
+      "id": "3b10",
+      "customer": "kashish",
+      "driver": "purva",
+      "status": "Pending"
+    },
+    {
+      "id": "6c9b",
+      "customer": "purva",
+      "driver": "kkkk",
+      "status": "Pending"
+    },
+    {
+      "id": "f284",
+      "customer": "kashish",
+      "driver": "purva",
+      "status": "Completed"
+    },
+    {
+      "id": "c727",
+      "customer": "Aarav Patel",
+      "driver": "Vikram Chauhan",
+      "status": "Pending"
+    }
+  ]
+}

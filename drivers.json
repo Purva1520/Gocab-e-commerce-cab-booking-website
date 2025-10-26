@@ -1,0 +1,45 @@
+{
+  "drivers": [
+    {
+      "id": "DRV1023",
+      "name": "Ajay Singh",
+      "password": "ajay123",
+      "rating": 4.8,
+      "earnings": 1250,
+      "pending": 800,
+      "rides": [
+        {
+          "rideId": "#R001",
+          "customer": "Ravi Kumar",
+          "pickup": "Connaught Place",
+          "drop": "IGI Airport",
+          "status": "Scheduled"
+        },
+        {
+          "rideId": "#R002",
+          "customer": "Neha Sharma",
+          "pickup": "Rajouri Garden",
+          "drop": "Saket",
+          "status": "Scheduled"
+        }
+      ]
+    },
+    {
+      "id": "DRV1050",
+      "name": "Rohan Mehta",
+      "password": "rohan321",
+      "rating": 4.5,
+      "earnings": 980,
+      "pending": 450,
+      "rides": [
+        {
+          "rideId": "#R101",
+          "customer": "Anjali Verma",
+          "pickup": "Lajpat Nagar",
+          "drop": "Noida",
+          "status": "Upcoming"
+        }
+      ]
+    }
+  ]
+}
